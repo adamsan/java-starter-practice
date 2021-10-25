@@ -21,4 +21,13 @@ public class PlayWithMultidimensionalArrays {
         }
 
     }
+
+    // add - adds 2 input arrays as vectors, only works for arrays with the same size
+
+    // min - input is a 2d array, retuns with an array containing the minimums of each input array
+
+    // max - input is a 2d array, retuns with an array containing the maximums of each input array
+
+    // zip - input is 2 arrays, output is a 2d array, where the i-th array consists of the two i-th elements from the input arrays
+    // zip({1,2,3}, {25,26,27}) -> {{1,25}, {2,26}, {3, 27}}
 }
