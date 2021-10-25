@@ -8,8 +8,6 @@ public class Main {
         value = -1;
         for (int i = 0; i < 5; i++) {
             value = sqr(i);
-
-            
             System.out.println(value);
         }
         System.out.println(value);

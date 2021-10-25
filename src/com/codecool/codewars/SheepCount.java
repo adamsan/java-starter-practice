@@ -14,6 +14,12 @@ public class SheepCount {
         //                               ^ this sheep will be eaten by the wolf befor it.
         // Output: Sheep survived: 2
 
+        int aliveSheepCount = getAliveSheepCount(args);
+        System.out.println("Sheep survived: " + aliveSheepCount);
+
+    }
+
+    private static int getAliveSheepCount(String[] args) {
         int aliveSheepCount = 0;
         for (int i = 0; i < args.length; i++) {
             if (args[i].equals("sheep")) {
@@ -23,8 +29,7 @@ public class SheepCount {
                 }
             }
         }
-        System.out.println("Sheep survived: " + aliveSheepCount);
-
+        return aliveSheepCount;
     }
 
     private static int count(String target, String[] strings) {
