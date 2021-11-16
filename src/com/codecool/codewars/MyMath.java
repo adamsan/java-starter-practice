@@ -18,20 +18,35 @@ public class MyMath {
         if (nums == null) return 0;
         if (!isValidOp(op)) return 0;
 
-        int sum = 0;
+        return "+".equals(op) ? sum(nums) : prod(nums);
+    }
+
+    private static int prod(String[] nums) {
         int prod = 1;
         for (String s : nums) {
             if (s != null) {
                 try {
                     int num = Integer.parseInt(s);
-                    sum += num;
                     prod *= num;
                 } catch (NumberFormatException e) {
                 }
             }
         }
+        return prod;
+    }
 
-        return "+".equals(op) ? sum : prod;
+    private static int sum(String[] nums) {
+        int sum = 0;
+        for (String s : nums) {
+            if (s != null) {
+                try {
+                    int num = Integer.parseInt(s);
+                    sum += num;
+                } catch (NumberFormatException e) {
+                }
+            }
+        }
+        return sum;
     }
 
     private static boolean isValidOp(String op) {
