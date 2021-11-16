@@ -16,13 +16,23 @@ public class PrimitiveMap {
      * where it's value is 1.
      */
     private static int[] characterOccuranceMap(String w) {
-        return null;
+        int[] map = new int['z' + 1];
+        for (int i = 0; i < w.length(); i++) {
+            char c = w.charAt(i);
+            map[c]++;
+        }
+        return map;
     }
 
     /**
      * Prints out how many times each character occurs. Only print characters, that occur more than 0 times.
      */
     private static void printCharacterOccurance(int[] map) {
+        for (char i = 0; i < map.length; i++) {
+            if (map[i] > 0) {
+                System.out.println("'" + i + "' occures " + map[i] + " times.");
+            }
+        }
     }
 
 }
