@@ -8,6 +8,7 @@ public class Repeat {
 //        booleans();
 //        arrays();
         printTruthTable();
+        printTruthTableRecursive();
     }
 
     private static void arrays() {
@@ -35,7 +36,7 @@ public class Repeat {
      */
     private static void printTruthTable() {
         // expression = a || b && c
-        System.out.println("a b c | expr");
+        System.out.println(" a b c | expr");
         boolean values[] = {false, true};
         for (boolean a : values) {
             for (boolean b : values) {
@@ -51,6 +52,30 @@ public class Repeat {
     private static boolean expression(boolean... values) {
         return values[0] || values[1] && values[2];
     }
+
+    private static void printTruthTableRecursive() {
+        boolean[] values = new boolean[3];
+        System.out.println(" a|b|c | a or b and c");
+        permutate(values, 0);
+    }
+
+    public static void permutate(boolean[] values, int i) {
+        if (i == values.length) {
+            boolean e = expression(values);
+            var a = values[0];
+            var b = values[1];
+            var c = values[2];
+            String row = String.format(" %d %d %d | %d", b2i(a), b2i(b), b2i(c), b2i(e));
+            System.out.println(row);
+            return;
+        }
+        values[i] = false;
+        permutate(values, i + 1);
+
+        values[i] = true;
+        permutate(values, i + 1);
+    }
+
 
     private static int b2i(boolean b) {
         return b ? 1 : 0;
