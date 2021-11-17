@@ -27,14 +27,33 @@ public class Repeat {
      * - print a header, with all input variables of the expresson
      * - print each row with all possible values the variables can take, also with the value of the expression (1 if true, 0 if false)
      * Example for `a or b`:
-     A B AorB
-     0 0 0
-     0 1 1
-     1 0 1
-     1 1 1
+     * A B AorB
+     * 0 0 0
+     * 0 1 1
+     * 1 0 1
+     * 1 1 1
      */
     private static void printTruthTable() {
         // expression = a || b && c
+        System.out.println("a b c | expr");
+        boolean values[] = {false, true};
+        for (boolean a : values) {
+            for (boolean b : values) {
+                for (boolean c : values) {
+                    boolean e = expression(a, b, c);
+                    String row = String.format(" %d %d %d | %d", b2i(a), b2i(b), b2i(c), b2i(e));
+                    System.out.println(row);
+                }
+            }
+        }
+    }
+
+    private static boolean expression(boolean... values) {
+        return values[0] || values[1] && values[2];
+    }
+
+    private static int b2i(boolean b) {
+        return b ? 1 : 0;
     }
 
     public static void foobar(String name, int times) {
