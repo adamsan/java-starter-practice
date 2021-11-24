@@ -13,6 +13,7 @@ public class Factorial {
      * fact(n) = n * fact(n-1)
      */
     private static int fact(int i) {
-        return 0;
+        if (i <= 1) return 1;
+        return i * fact(i - 1);
     }
 }
