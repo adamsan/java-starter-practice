@@ -5,8 +5,6 @@ import java.time.LocalDate;
 import java.time.temporal.TemporalAdjusters;
 import java.util.*;
 
-import static com.codecool.oop.dates.Event.*;
-
 public class AgendaImpl implements Agenda {
     private Map<LocalDate, List<Event>> eventsMap = new HashMap<>();
 
@@ -19,14 +17,14 @@ public class AgendaImpl implements Agenda {
         LocalDate nextSunday = today.with(TemporalAdjusters.next(DayOfWeek.SUNDAY));
         LocalDate twoWeeksAfterSunday = nextSunday.minusWeeks(2);
 
-        add(new Event("Today's task", today, LOW_IMPORTANCE));
-        add(new Event("Checking registration", nextMonday, LOW_IMPORTANCE));
-        add(new Event("Visiting the barber", nextTuesday, LOW_IMPORTANCE));
-        add(new Event("HIIT training with J", nextTuesday, HIGH_IMPORTANCE));
-        add(new Event("Fishing", nextSaturday, MEDIUM_IMPORTANCE));
-        add(new Event("Fixing chair", nextSunday, MEDIUM_IMPORTANCE));
-        add(new Event("Call grandma", nextSunday, LOW_IMPORTANCE));
-        add(new Event("Celebrating the future", twoWeeksAfterSunday, LOW_IMPORTANCE));
+        add(new Event("Today's task", today, Importance.LOW));
+        add(new Event("Checking registration", nextMonday, Importance.LOW));
+        add(new Event("Visiting the barber", nextTuesday, Importance.LOW));
+        add(new Event("HIIT training with J", nextTuesday, Importance.HIGH));
+        add(new Event("Fishing", nextSaturday, Importance.MEDIUM));
+        add(new Event("Fixing chair", nextSunday, Importance.MEDIUM));
+        add(new Event("Call grandma", nextSunday, Importance.LOW));
+        add(new Event("Celebrating the future", twoWeeksAfterSunday, Importance.LOW));
     }
 
     public void add(Event event) {
@@ -65,7 +63,7 @@ public class AgendaImpl implements Agenda {
 
         for (LocalDate d : dates) {
             for (Event e : events.get(d)) {
-                if (e.importance == HIGH_IMPORTANCE) {
+                if (e.importance == Importance.HIGH) {
                     return e;
                 }
             }
